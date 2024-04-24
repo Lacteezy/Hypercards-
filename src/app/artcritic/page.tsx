@@ -6,6 +6,8 @@ import TagCloud from "@/components/TagCloud";
 import ImageGallery from "@/components/ImageGallery";
 import { getGroqCompletion } from "@/ai/groq";
 import { generateImageFal, generateVoice } from "@/ai/fal";
+import React from 'react';
+import Draggable from 'react-draggable';
 
 type Artwork = {
   description: string;
@@ -22,7 +24,7 @@ export default function ArtcriticPage() {
   const [selectedArtwork, setSelectedArtwork] = useState<Artwork | null>(null);
   const [message, setMessage] = useState<string>("Create Artwork");
   const [critiqueAudio, setCritiqueAudio] = useState<string>("");
-
+ 
   async function handleCreate() {
     setMessage("Generating excuses...");
     //generate the image description
@@ -71,13 +73,13 @@ export default function ArtcriticPage() {
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
         <div className="flex flex-col">
           <TagCloud
-            prompt="A description of excuse to get off work"
+            prompt="A description of excuse to get off work."
             totalTags={60}
             handleSelect={(tags) => setKeywords(tags.join(", "))}
           />
-          <button className="p-4" onClick={handleCreate}>
+          <button className="p-4" onClick={handleCreate} draggable>
             {message}
-          </button>
+          </button> 
           {selectedArtwork && (
             <div className="flex flex-col pb-4">
               <span>{selectedArtwork.description}</span>

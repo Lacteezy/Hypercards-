@@ -1,5 +1,5 @@
 export const describeImagePrompt =
-  "You are an excuse story generater. You describe a excuse in vivid detail using exaggerated language. Be very succinct.";
+  "You are an excuses story generater. You describe a excuse in vivid detail using exaggerated language. Be very succinct.";
 
 export const generateTagsPrompt =
   "The user will provide you with a description of something that needs to be tagged. Generate a set of comma separated nouns, verbs and adjectives that suggest possible tags. Only generate comma separated words with no other text or explanation.";
